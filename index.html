@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SAYO NGA KASI</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffc0cb, #add8e6, #dda0dd);
+      font-family: 'Courier New', Courier, monospace;
+      color: #fff;
+      text-align: center;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card {
+      background: #fff0f5;
+      color: #8b004f;
+      border: 4px solid #ff69b4;
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 700px;
+      margin: 0 auto;
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.6);
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ff85c1;
+    }
+
+    .heart {
+      position: absolute;
+      top: -20px;
+      font-size: 24px;
+      animation: fall linear infinite;
+      pointer-events: none;
+      opacity: 0.9;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
+
+    #letter {
+      display: none;
+      margin-top: 30px;
+      font-size: 17px;
+      line-height: 1.7;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="card">
+    <h2>ROROROROR</h2>
+    <p id="question">Do you know how much I love you?</p>
+    <button onclick="answer('yes')">Yes</button>
+    <button onclick="answer('no')">No</button>
+  </div>
+
+  <div id="letter" class="card">
+    <p>
+I made this just for you. Thank you for existing and for being so lovable in your own little ways.
+I want to tell you how important you are para sakin. You're irreplaceable and no matter what happens, no one could ever make me feel the way you do.
+
+Honestly, you ruin my peace sometimes. You pop into my thoughts out of nowhere and suddenly, the whole world feels too quiet or too loud. And the weird part is, I don't even mind. You ruin the parts of me I thought I had already figured out. You make me second guess if I was ever really okay before you came into my life. Because now, nothing feels enough if you’re not part of it.
+
+You make simple days feel like something more. Kahit wala kang ginagawa minsan, just the thought of you changes everything. I never expected someone like you to matter this much, but now that you do, I wouldn’t want it any other way. I don’t want peace if peace means not thinking about you.
+
+You’re the person I’d choose to mess things up with if it means I get to feel something real. You make everything complicated but in the best way. I want that. I want the overthinking, the late-night thoughts, the softness, the longing. I want all of it. You make me want more. Not of anything else, just more of you.
+
+You're not perfect, and I don't want you to be. I just want you to be real, to be you, because that’s already more than enough. You’re the only one who can mess with my thoughts and still leave me smiling at the end of the day. You make me care more than I planned to. And maybe that’s the point.
+
+You're the kind of person who can ruin everything just by being unforgettable. But I’d still let you. I’d let you stay in my head. I’d let your name echo every time I try to distract myself. I’d let the thought of you ruin my silence if it means I get to feel close to you, even in the smallest way.
+
+You're irreplaceable. Not just in the usual way people say it. You're the kind of irreplaceable that stays even when everything else fades. I don't want a version of you. I want you, exactly how you are, flaws and all. You're the kind of person I’d never get tired of choosing, even when it’s hard.
+
+You might not know how much space you take up in my life, but it's a lot. You’re in my random thoughts, my saved songs, the way I write now. You changed me, and that’s not something I say lightly. I don’t want to go back to who I was before you. That version of me didn’t know how good it feels to care about someone this deeply.
+
+So no matter how messy or complicated things get, I want you to know this. You matter to me more than you think. You're not just someone I like having around. You're someone I don’t want to imagine life without.
+
+And that's the kind of ruin I’d gladly live with.
+    </p>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        text: "Do you know how much I love you?",
+        responses: {
+          yes: "I'm happy you know",
+          no: "Please press okay so you'll know how much I love you "
+        }
+      },
+      {
+        text: "Do you love me?",
+        responses: {
+          yes: "UEHEOEUDHOODJDIW928272YWHSJSJ ",
+          no: "Ay ganon sige okay lang  d sya masakit "
+        }
+      }
+    ];
+
+    let currentQuestion = 0;
+
+    function answer(ans) {
+      alert(questions[currentQuestion].responses[ans]);
+
+      currentQuestion++;
+      if (currentQuestion < questions.length) {
+        document.getElementById("question").textContent = questions[currentQuestion].text;
+      } else {
+        document.getElementById("card").style.display = "none";
+        document.getElementById("letter").style.display = "block";
+      }
+    }
+
+    function createHeart() {
+      const heartStyles = ["💜", "🩷", "💙"];
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.textContent = heartStyles[Math.floor(Math.random() * heartStyles.length)];
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = 2 + Math.random() * 3 + "s";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+    setInterval(createHeart, 300);
+  </script>
+
+</body>
+</html>
